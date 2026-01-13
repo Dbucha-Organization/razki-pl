@@ -147,6 +147,32 @@ if (ageModal && yesBtn && noBtn) {
     });
 }
 
+// Description Toggle Logic
+const showMoreBtn = document.getElementById('showMoreBtn');
+
+if (showMoreBtn) {
+    showMoreBtn.addEventListener('click', () => {
+        const extraContent = document.querySelectorAll('.desc-item.extra-content');
+        const isExpanded = showMoreBtn.classList.contains('active');
+
+        extraContent.forEach(item => {
+            if (isExpanded) {
+                item.classList.add('hidden');
+            } else {
+                item.classList.remove('hidden');
+            }
+        });
+
+        showMoreBtn.classList.toggle('active');
+
+        if (showMoreBtn.classList.contains('active')) {
+            showMoreBtn.innerHTML = 'Mniej <i class="icon-down"></i>';
+        } else {
+            showMoreBtn.innerHTML = 'Więcej <i class="icon-down"></i>';
+        }
+    });
+}
+
 // Hide the top warning when the page is scrolled
 const warn = document.querySelector(".warn");
 if (warn) {
